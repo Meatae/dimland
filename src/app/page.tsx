@@ -70,22 +70,22 @@ export default function Home() {
         refresh
       />
       {/* Hero Section */}
-      <section className="text-center py-20 relative z-10">
-         <Avatar className="w-32 h-32 mx-auto mb-6">
+      <section className="text-center pt-6 pb-16 relative z-10">
+         <Avatar className="w-32 h-32 mx-auto mb-2">
            <AvatarImage src="/avatar.jpg" alt="Neurovideo Creator" />
          </Avatar>
-          <AuroraText className="text-6xl font-bold mb-4 inline text-foreground hover:scale-105 transition-transform duration-300">
+          <AuroraText className="text-8xl font-bold mb-6 inline text-foreground hover:scale-105 transition-transform duration-300">
             Создаю для{'>'}
           </AuroraText>
           <TypingAnimation
             words={["эмоций", "подарка", "праздника", "памяти"]}
             loop
-            className="text-6xl font-bold mb-4 inline animate-aurora bg-[length:200%_auto] bg-clip-text text-transparent"
+            className="text-8xl font-bold mb-6 inline animate-aurora bg-[length:200%_auto] bg-clip-text text-transparent"
             style={{ backgroundImage: `linear-gradient(135deg, #00FFAB, #0A0A0A, #00FFAB, #38bdf8, #00FFAB)` }}
             pauseDelay={2000}
             duration={100}
           />
-        <p className="text-xl mb-6 max-w-2xl mx-auto">
+        <p className="text-xl mb-6 max-w-2xl mx-auto pl-12">
           Создание завораживающих видео, генерируемых ИИ, которые рассказывают истории, вдохновленные магией Pixar.
           Воплощение воображения в жизнь через нейронные сети и творческое видение.
         </p>
