@@ -14,7 +14,7 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const reviews = [
   {
@@ -44,19 +44,6 @@ const reviews = [
 ];
 
 export default function Home() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useTransform(mouseY, [-300, 300], [15, -15]);
-  const rotateY = useTransform(mouseX, [-300, 300], [-15, 15]);
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    mouseX.set(event.clientX - centerX);
-    mouseY.set(event.clientY - centerY);
-  };
   return (
     <div className="relative max-w-6xl mx-auto px-4 py-8">
       <ScrollProgress className="top-[65px]" />
@@ -70,7 +57,7 @@ export default function Home() {
         refresh
       />
       {/* Hero Section */}
-      <section className="text-center pt-8 pb-16 relative z-10">
+      <section id="hero" className="text-center pt-8 pb-16 relative z-10">
           <AuroraText className="text-7xl font-bold mb-6 inline text-foreground hover:scale-105 transition-transform duration-300">
             Создаю для{'>'}
           </AuroraText>
@@ -82,7 +69,7 @@ export default function Home() {
             pauseDelay={2000}
             duration={100}
           />
-        <p className="text-xl mb-6 max-w-2xl mx-auto pl-12">
+        <p className="text-xl mb-6 max-w-2xl mx-auto text-center">
           Создание завораживающих видео, генерируемых ИИ, которые рассказывают истории, вдохновленные магией Pixar.
           Воплощение воображения в жизнь через нейронные сети и творческое видение.
         </p>
@@ -98,7 +85,7 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="py-16 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Обо Мне</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground font-serif">Обо Мне</h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
            <div className="flex flex-col justify-center">
              <p className="text-lg mb-4 text-foreground">
@@ -158,27 +145,16 @@ export default function Home() {
 
         {/* Reviews Section */}
         <section id="reviews" className="py-16 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">Отзывы</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-foreground font-serif">Отзывы</h2>
           <Carousel className="w-full max-w-5xl mx-auto">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    style={{
-                      rotateX,
-                      rotateY,
-                      transformStyle: "preserve-3d",
-                    }}
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={() => {
-                      mouseX.set(0);
-                      mouseY.set(0);
-                    }}
-                    className="perspective-1000"
-                  >
+                   <motion.div
+                     initial={{ opacity: 0, y: 50 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.6, delay: index * 0.1 }}
+                   >
                     <Card className="border-accent/20 hover:border-accent/40 transition-all duration-500 p-8 bg-gradient-to-br from-white to-accent/5 transform-gpu">
                       <CardHeader className="pb-6">
                         <div className="flex items-center space-x-6">
@@ -211,7 +187,7 @@ export default function Home() {
        {/* Portfolio Section */}
       <section id="portfolio" className="py-16 relative z-10">
         <motion.h2
-          className="text-3xl font-bold text-center mb-8 text-foreground"
+          className="text-3xl font-bold text-center mb-8 text-foreground font-serif"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -297,7 +273,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="py-16 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Контакты</h2>
+        <h2 className="text-3xl font-bold text-center mb-8 text-foreground font-serif">Контакты</h2>
          <Card className="max-w-md mx-auto shadow-lg border-accent/20 hover:shadow-xl hover:border-accent/40 transition-all duration-300">
            <CardHeader>
              <CardTitle>Связаться</CardTitle>
