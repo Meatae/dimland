@@ -5,14 +5,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { AuroraText } from "@/components/ui/aurora-text";
-import { Meteors } from "@/components/ui/meteors";
+
 import { GridPattern } from "@/components/ui/grid-pattern";
 
-import { Particles } from "@/components/ui/particles";
-import { IconCloud } from "@/components/ui/icon-cloud";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { FloatingHashtags } from "@/components/ui/floating-hashtags";
+
 
 import { motion } from "framer-motion";
 
@@ -48,14 +48,9 @@ export default function Home() {
     <div className="relative max-w-6xl mx-auto px-4 py-8">
       <ScrollProgress className="top-[65px]" />
       <GridPattern className="absolute inset-0 opacity-20" />
-      <Meteors number={20} />
-      <Particles
-        className="absolute inset-0"
-        quantity={50}
-        ease={80}
-        color="#00FFAB"
-        refresh
-      />
+
+      <FloatingHashtags />
+
       {/* Hero Section */}
       <section id="hero" className="text-center pt-8 pb-16 relative z-10">
           <AuroraText className="text-7xl font-bold mb-6 inline text-foreground hover:scale-105 transition-transform duration-300">
